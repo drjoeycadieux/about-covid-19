@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Dashboard</title>
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>COVID-19 Dashboard</h1>
+        <div class="country-select">
+            <label for="country">Select Country:</label>
+            <select id="country">
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="IN">India</option>
+                <option value="BR">Brazil</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <div class="stats">
+            <h2>Statistics</h2>
+            <div class="stat">
+                <h3>Total Cases:</h3>
+                <p id="total-cases">Loading...</p>
+            </div>
+            <div class="stat">
+                <h3>Total Deaths:</h3>
+                <p id="total-deaths">Loading...</p>
+            </div>
+            <div class="stat">
+                <h3>Total Recovered:</h3>
+                <p id="total-recovered">Loading...</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
