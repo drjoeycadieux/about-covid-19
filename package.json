@@ -7,5 +7,8 @@
   },
   "author": "Joey Cadieux",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "moment": "^2.30.1"
+  }
 }
