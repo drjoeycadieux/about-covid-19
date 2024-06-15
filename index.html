@@ -16,10 +16,11 @@
 
 <body>
     <div class="container">
-        <p id="time">
+        <p style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 23px; font-weight: bold;"
+            id="time">
             <script>
-                document.getElementById('time');
-                const time = moment().format('MMMM Do YYYY, h:mm:ss a');
+                document.write(new Date().getFullYear());
+                document.write(new Date().toLocaleTimeString());
             </script>
         </p>
         <h1>Welcome to Covid-19 Information</h1>
