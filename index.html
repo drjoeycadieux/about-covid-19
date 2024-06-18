@@ -14,7 +14,8 @@
         <p style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 23px; font-weight: bold;"
             id="time">
             <script>
-                document.write(new Date().getFullYear());
+                // Would like to add momentjs but this peace of code do the same for me.
+                // momentjs is is install you can see it in package.json install from npm.
                 document.write(new Date().toLocaleTimeString());
             </script>
         </p>
@@ -26,6 +27,7 @@
     </div>
 
     <script>
+        // This js function replace <a href=""></a> for me. --do not change--.
         function enterWebsite() {
             window.location.href = "/en";
         }
