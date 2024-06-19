@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     countrySelect.addEventListener("change", function () {
         const selectedCountry = this.value;
-        fetch(`https://api.covid19api.com/total/country/${selectedCountry}`)
+        fetch(`/center/data/covid-data.json${selectedCountry}`)
             .then(response => response.json())
             .then(data => {
                 const latestData = data[data.length - 1];

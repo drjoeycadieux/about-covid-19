@@ -1,0 +1,22 @@
+[
+    {
+        "question": "What are the key benefits of blockchain technology?",
+        "response": "Blockchain technology offers decentralized and transparent transactions, enhanced security through cryptographic techniques, reduced costs by eliminating intermediaries, and improved traceability across various industries."
+    },
+    {
+        "question": "How does 5G technology differ from previous generations of mobile networks?",
+        "response": "5G technology provides significantly faster data speeds, lower latency, and the ability to connect a much larger number of devices simultaneously compared to previous generations like 4G LTE."
+    },
+    {
+        "question": "What are some applications of the Internet of Things (IoT) in smart cities?",
+        "response": "IoT in smart cities enables efficient energy management, smart traffic control systems, environmental monitoring, public safety enhancements through sensors and data analytics, and improved citizen services."
+    },
+    {
+        "question": "What is quantum computing and how is it different from classical computing?",
+        "response": "Quantum computing leverages quantum bits (qubits) to perform computations using quantum mechanics principles, allowing for exponentially faster processing of certain types of problems compared to classical computing."
+    },
+    {
+        "question": "How are chatbots being used in customer service?",
+        "response": "Chatbots automate responses to customer inquiries using natural language processing (NLP) and machine learning algorithms, providing instant responses, 24/7 availability, and freeing up human agents for more complex issues."
+    }
+]
