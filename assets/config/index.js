@@ -1,7 +1,5 @@
 // contribution or change to this file are allowed.
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const countrySelect = document.getElementById("country");
     const totalCases = document.getElementById("total-cases");
