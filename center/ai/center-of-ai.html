@@ -4,134 +4,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Covid-19 Ai Center - AI Chat</title>
+    <title>AI Chat</title>
     <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
+        .chat-container {
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            background-color: #f5f5f5;
-        }
-
-        #chat-container {
-            display: flex;
-            flex-grow: 1;
+            width: 500px;
+            margin: 0 auto;
             padding: 20px;
+            border: 1px solid #ddd;
         }
 
-        #chat-history {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            height: calc(100vh - 130px);
-            /* Subtract header and input field height */
+        .chat-history {
+            flex: 1;
             overflow-y: scroll;
-            background-color: #fff;
+            padding: 10px;
         }
 
-        #user-message,
+        .chat-message {
+            margin-bottom: 10px;
+        }
+
+        .user-message {
+            text-align: right;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .ai-message {
+            text-align: left;
+            background-color: #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .chat-input {
+            display: flex;
+        }
+
+        #message {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
         #send-button {
             padding: 10px;
-            margin: 5px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        #user-message {
-            flex-grow: 1;
-        }
-
-        #send-button {
-            cursor: pointer;
             background-color: #4CAF50;
             color: white;
-        }
-
-        #chat-history p {
-            margin: 5px 0;
-            line-height: 1.5;
-            font-family: sans-serif;
-            font-weight: bold;
-        }
-
-        .you {
-            text-align: right;
-            color: #333;
-        }
-
-        .ai {
-            text-align: left;
-            color: #999;
-        }
-
-        header {
-            padding: 25px;
-            background-color: rgb(6, 42, 78);
-        }
-
-        header>p {
-            color: white;
-            font-family: sans-serif;
-            display: inline;
-            font-weight: bold;
-        }
-
-        header>h3 {
-            color: white;
-            font-family: sans-serif;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <p>Covid-19 Information Website</p>
-        <h3>Welcome to our AI Intelligence</h3>
-    </header>
-    <div id="chat-history"></div>
-    <input type="text" id="user-message" placeholder="Type your message here">
-    <button id="send-button">Send</button>
+    <div class="chat-container">
+        <div class="chat-history">
+        </div>
+        <div class="chat-input">
+            <input type="text" id="message" placeholder="Type your message">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
     <script>
-        const chatHistory = document.getElementById('chat-history');
-        const userInput = document.getElementById('user-message');
-        const sendButton = document.getElementById('send-button');
+        require('dotenv').config(); // Load environment variables
 
-        // Replace with your actual OpenAI API key (for demonstration purposes only, avoid exposing key in code)
-        const apiKey = '';
+        const messageInput = document.getElementById('message');
+        const sendButton = document.getElementById('send-button');
+        const chatHistory = document.querySelector('.chat-history');
+
+        const apiKey = process.env.OPENAI_API_KEY; // Access API key from .env
+
+        let isSending = false;
+
+        function sendMessage(message) {
+            if (!isSending) {
+                isSending = true;
+                fetch('https://api.openai.com/v1/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`,
+                    },
+                    body: JSON.stringify({
+                        model: 'text-davinci-003', // Choose an appropriate OpenAI model
+                        prompt: message,
+                        max_tokens: 1024, // Adjust the maximum response length
+                        temperature: 0.5, // Controls randomness of the response (0 - deterministic, 1 - creative)
+                    }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        const responseText = data.choices[0].text.trim();
+                        appendMessage(message, 'user-message');
+                        appendMessage(responseText, 'ai-message');
+                        isSending = false;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        isSending = false;
+                    });
+            }
+        }
+
+        function appendMessage(text, className) {
+            const messageElement = document.createElement('div');
+            messageElement.innerText = text;
+            messageElement.classList.add(className);
+            chatHistory.appendChild(messageElement);
+            chatHistory.scrollTop = chatHistory.scrollHeight; // Scroll to the bottom
+        }
 
         sendButton.addEventListener('click', () => {
-            const userMessage = userInput.value;
-            if (userMessage.trim() === '') {
-                return;
+            const message = messageInput.value.trim();
+            if (message) {
+                sendMessage(message);
+                messageInput.value = '';
             }
-
-            // Simulate chat history for demonstration (replace with logic to store actual history)
-            chatHistory.innerHTML += `<p>You: ${userMessage}</p>`;
-            userInput.value = '';
-
-            // Call OpenAI API (replace with fetch API call)
-            sendChatMessage(userMessage)
-                .then(response => {
-                    chatHistory.innerHTML += `<p>AI: ${response}</p>`;
-                })
-                .catch(error => {
-                    console.error(error);
-                    chatHistory.innerHTML += '<p>Error: Failed to communicate with AI.</p>';
-                })
         });
-
-        // Replace with actual function to call OpenAI API using fetch with your API key
-        function sendChatMessage(message) {
-            // Replace with logic to build the API request and handle response
-            return new Promise((resolve, reject) => {
-                const generatedResponse = "This is a placeholder response from the AI (replace with actual API call)";
-                resolve(generatedResponse);
-            });
-        }
 
     </script>
 </body>
