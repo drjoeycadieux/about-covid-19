@@ -79,13 +79,10 @@
 
             const responseData = await response.json();
 
-            // Display user question
             displayMessage('user', question);
 
-            // Display assistant response
             displayMessage('assistant', responseData.message);
 
-            // Clear input field
             questionInput.value = '';
         });
 
