@@ -16,10 +16,10 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
-            display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            text-align: center;
+            margin: 25px;
         }
 
         .chat-container {
@@ -29,9 +29,7 @@
             overflow: hidden;
             width: 100%;
             max-width: 400px;
-            /* Adjust based on your design */
             height: 80vh;
-            /* Adjust based on your design */
             display: flex;
             flex-direction: column;
         }
@@ -72,18 +70,21 @@
             background-color: #45a049;
         }
 
-        /* header {
+        header {
             padding: 25px;
             margin: 10px;
             background-color: #4CAF50;
             border-radius: 15px;
+            width: 500px;
+            margin: auto;
         }
 
         header>p {
             color: white;
             font-family: 'Courier New', Courier, monospace;
             font-size: 23px;
-        } */
+            font-weight: bold;
+        }
 
         /* Responsive styles */
         @media screen and (max-width: 600px) {
@@ -108,9 +109,9 @@
 </head>
 
 <body>
-    <!-- <header>
+    <header>
         <p>Chat Here With Covid-19 Information</p>
-    </header> -->
+    </header>
     <div class="chat-container">
         <div id="chat-window"></div>
         <input type="text" id="message-input" placeholder="Type your message...">
