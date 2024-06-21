@@ -4,41 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/assets/images/main.jpg" type="image/jpg">
-    <title>COVID-19 Dashboard</title>
-    <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <title>COVID-19 Data Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>COVID-19 Dashboard</h1>
-        <div class="country-select">
-            <label for="country">Select Country:</label>
-            <select id="country">
-                <option value="US">United States</option>
-                <option value="CA">Canada</option>
-                <option value="IN">India</option>
-                <option value="BR">Brazil</option>
-                <!-- Add more options as needed -->
-            </select>
-        </div>
-        <div class="stats">
-            <h2>Statistics</h2>
-            <div class="stat">
-                <h3>Total Cases:</h3>
-                <p id="total-cases">Loading...</p>
-            </div>
-            <div class="stat">
-                <h3>Total Deaths:</h3>
-                <p id="total-deaths">Loading...</p>
-            </div>
-            <div class="stat">
-                <h3>Total Recovered:</h3>
-                <p id="total-recovered">Loading...</p>
-            </div>
-        </div>
-    </div>
-    <script src="/assets/config/index.js"></script>
+    <h1>COVID-19 Data</h1>
+    <div id="covidData"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', fetchData);
+
+        async function fetchData() {
+            try {
+                const response = await fetch('/center/data/covid-data.json'); // Replace with actual API endpoint
+                const data = await response.json();
+                displayData(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                document.getElementById('covidData').innerHTML = '<p>Failed to fetch data. Please try again later.</p>';
+            }
+        }
+
+        function displayData(data) {
+            const globalData = data.global;
+            const countriesData = data.countries;
+
+            let html = `
+        <h2>Global Data</h2>
+        <p>Total Cases: ${globalData.total_cases}</p>
+        <p>Total Deaths: ${globalData.total_deaths}</p>
+        <p>Total Recoveries: ${globalData.total_recoveries}</p>
+        <h2>Countries Data</h2>
+        <table>
+          <tr>
+            <th>Country</th>
+            <th>Cases</th>
+            <th>Deaths</th>
+            <th>Recoveries</th>
+          </tr>
+      `;
+
+            countriesData.forEach(country => {
+                html += `
+          <tr>
+            <td>${country.country}</td>
+            <td>${country.cases}</td>
+            <td>${country.deaths}</td>
+            <td>${country.recoveries}</td>
+          </tr>
+        `;
+            });
+
+            html += `</table>`;
+            document.getElementById('covidData').innerHTML = html;
+        }
+    </script>
 </body>
 
 </html>

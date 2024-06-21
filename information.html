@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 Information - Learn More - Question</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #qa-container {
+            background-color: rgb(15, 34, 70);
+            border-radius: 20px;
+            color: white;
+        }
+
+        p {
+            font-size: 21px;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="background-color: rgb(10, 32, 65); padding: 25px;">
+        <p style="color: white; font-family: sans-serif; text-align: center; font-size: 23px;">Generated Question From
+            The openai Source.
+        </p>
+    </header>
+    <br>
+    <br>
+    <div id="qa-container" style="font-family: sans-serif; width: 900px; margin: auto; padding: 25px;">
+        <!-- Questions and answers will be displayed here -->
+    </div>
+
+    <script>
+        // Fetch the JSON file
+        const url = '/center/data/data-provider.json';
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Process the JSON data and display it in HTML
+                const qaContainer = document.getElementById('qa-container');
+
+                // Iterate over each question-answer pair
+                data.forEach(item => {
+                    const question = item.question;
+                    const response = item.response;
+
+                    // Create HTML elements for question and response
+                    const questionElem = document.createElement('h3');
+                    questionElem.textContent = question;
+
+                    const responseElem = document.createElement('p');
+                    responseElem.textContent = response;
+
+                    // Append question and response elements to container
+                    qaContainer.appendChild(questionElem);
+                    qaContainer.appendChild(responseElem);
+                });
+            })
+            .catch(error => {
+                console.error('There was a problem fetching the data:', error);
+            });
+    </script>
+</body>
+
+</html>

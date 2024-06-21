@@ -1,0 +1,39 @@
+{
+    "global": {
+        "total_cases": 179854818,
+        "total_deaths": 3882222,
+        "total_recoveries": 164532107
+    },
+    "countries": [
+        {
+            "country": "United States",
+            "cases": 34262787,
+            "deaths": 613712,
+            "recoveries": 29705421
+        },
+        {
+            "country": "India",
+            "cases": 29935058,
+            "deaths": 388135,
+            "recoveries": 28994865
+        },
+        {
+            "country": "Brazil",
+            "cases": 17966831,
+            "deaths": 502586,
+            "recoveries": 16444677
+        },
+        {
+            "country": "Russia",
+            "cases": 5629445,
+            "deaths": 136625,
+            "recoveries": 5131980
+        },
+        {
+            "country": "France",
+            "cases": 5783116,
+            "deaths": 110399,
+            "recoveries": 5619712
+        }
+    ]
+}
