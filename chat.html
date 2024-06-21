@@ -121,78 +121,6 @@
 
     <script src="https://unpkg.com/@supabase/supabase-js"></script>
     <script>
-        // const { createClient } = supabase;
-        // supabase = createClient(
-        //     "https://ocwwnpkmkmbunrnmpfiz.supabase.co",
-        //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jd3ducGtta21idW5ybm1wZml6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk3MjkzODMsImV4cCI6MjAyNTMwNTM4M30.iOiVXYJhNZKBF1clbYPa14Bm3f5l4wyUye0dx60DV8g",
-        // );
-
-
-        // async function fetchAndDisplayMessages() {
-        //     const { data, error } = await supabase
-        //         .from('messages')
-        //         .select('*')
-        //         .order('timestamp');
-
-        //     if (error) {
-        //         console.error('Error fetching messages:', error.message);
-        //         return;
-        //     }
-
-        //     const chatWindow = document.getElementById('chat-window');
-        //     chatWindow.innerHTML = ''; // Clear previous messages
-
-        //     data.forEach(message => {
-        //         const messageElement = document.createElement('div');
-        //         messageElement.classList.add('message');
-        //         messageElement.innerHTML = `
-        //     <strong>${message.sender}</strong>: ${message.message}
-        // `;
-        //         chatWindow.appendChild(messageElement);
-        //     });
-
-
-        //     chatWindow.scrollTop = chatWindow.scrollHeight;
-        // }
-
-
-        // async function sendMessage(message) {
-        //     const { data, error } = await supabase
-        //         .from('messages')
-        //         .insert([
-        //             { sender: 'Users', message: message, timestamp: new Date().toISOString() }
-        //         ]);
-
-        //     if (error) {
-        //         console.error('Error sending message:', error.message);
-        //         return;
-        //     }
-
-        //     fetchAndDisplayMessages();
-        // }
-
-
-        // document.getElementById('send-button').addEventListener('click', () => {
-        //     const messageInput = document.getElementById('message-input');
-        //     const message = messageInput.value.trim();
-
-        //     if (message !== '') {
-        //         sendMessage(message);
-        //         messageInput.value = '';
-        //     }
-        // });
-
-
-        // fetchAndDisplayMessages();
-
-
-        // const realtime = supabase
-        //     .from('messages')
-        //     .on('INSERT', payload => {
-        //         fetchAndDisplayMessages();
-        //     })
-        //     .subscribe();
-
         const { createClient } = supabase;
         const supabaseClient = createClient(
             "https://ocwwnpkmkmbunrnmpfiz.supabase.co",
@@ -275,8 +203,6 @@
                 fetchAndDisplayMessages();
             })
             .subscribe();
-
-
     </script>
 </body>
 
