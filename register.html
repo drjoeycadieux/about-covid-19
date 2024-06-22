@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #message {
+            margin-top: 20px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form id="register-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Register</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+    <script>
+        const { createClient } = supabase;
+        const supabaseClient = createClient(
+            "https://ocwwnpkmkmbunrnmpfiz.supabase.co",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jd3ducGtta21idW5ybm1wZml6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk3MjkzODMsImV4cCI6MjAyNTMwNTM4M30.iOiVXYJhNZKBF1clbYPa14Bm3f5l4wyUye0dx60DV8g"
+        );
+
+        document.getElementById('register-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const { data, error } = await supabase.auth.signUp({
+                email: email,
+                password: password,
+            });
+
+            const messageElement = document.getElementById('message');
+
+            if (error) {
+                messageElement.textContent = `Error: ${error.message}`;
+            } else {
+                messageElement.textContent = 'Registration successful! Please check your email for a confirmation link.';
+            }
+        });
+
+    </script>
+</body>
+
+</html>
