@@ -127,6 +127,11 @@
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jd3ducGtta21idW5ybm1wZml6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk3MjkzODMsImV4cCI6MjAyNTMwNTM4M30.iOiVXYJhNZKBF1clbYPa14Bm3f5l4wyUye0dx60DV8g"
         );
 
+        /**
+         * @author Joey Cadieux &lt;joeycadieux161@gmail.com>
+        */
+        // Adjust if needed but for now it is disable.
+
         let username = '';
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -134,7 +139,7 @@
             usernameInput.addEventListener('blur', () => {
                 username = usernameInput.value.trim();
                 if (!username) {
-                    alert('Username cannot be empty!');
+                    // Look Here // alert('Username cannot be empty!');
                 }
             });
         });
