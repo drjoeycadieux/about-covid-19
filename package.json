@@ -11,7 +11,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "moment": "^2.30.1",
-    "openai": "^4.47.3"
+    "openai": "^4.48.1"
   },
   "devDependencies": {
     "dotenv-webpack": "^8.1.0"
