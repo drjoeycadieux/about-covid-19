@@ -1,201 +1,263 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="shortcut icon"
+            href="/assets/images/main.jpg"
+            type="image/jpg"
+        />
+        <title>Informations sur la COVID-19</title>
+        <script type="text/javascript">
+            document.addEventListener("contextmenu", function (e) {
+                e.preventDefault();
+            });
+        </script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f2f2f2;
+                color: #333;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/assets/images/main.jpg" type="image/jpg">
-    <title>Informations sur la COVID-19</title>
-    <script type="text/javascript">
-        document.addEventListener('contextmenu', function (e) {
-            e.preventDefault();
-        });
-    </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f2f2f2;
-            color: #333;
-        }
+            h1 {
+                text-align: center;
+                color: #0066cc;
+                margin-bottom: 30px;
+            }
 
-        h1 {
-            text-align: center;
-            color: #0066cc;
-            margin-bottom: 30px;
-        }
+            h2,
+            h3 {
+                color: #0099cc;
+            }
 
-        h2,
-        h3 {
-            color: #0099cc;
-        }
+            .info-section {
+                background-color: #fff;
+                border-radius: 8px;
+                padding: 20px;
+                margin-bottom: 30px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
 
-        .info-section {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+            .info-section h3 {
+                margin-top: 0;
+            }
 
-        .info-section h3 {
-            margin-top: 0;
-        }
+            .info-section p {
+                line-height: 1.6;
+            }
 
-        .info-section p {
-            line-height: 1.6;
-        }
+            .info-section ul {
+                padding-left: 20px;
+            }
 
-        .info-section ul {
-            padding-left: 20px;
-        }
+            .info-section ul li {
+                margin-bottom: 8px;
+            }
 
-        .info-section ul li {
-            margin-bottom: 8px;
-        }
+            .resource-list {
+                list-style: none;
+                padding: 0;
+            }
 
-        .resource-list {
-            list-style: none;
-            padding: 0;
-        }
+            .resource-list li {
+                margin-bottom: 10px;
+            }
 
-        .resource-list li {
-            margin-bottom: 10px;
-        }
+            .resource-list a {
+                color: #0066cc;
+                text-decoration: none;
+            }
 
-        .resource-list a {
-            color: #0066cc;
-            text-decoration: none;
-        }
+            .resource-list a:hover {
+                text-decoration: underline;
+            }
 
-        .resource-list a:hover {
-            text-decoration: underline;
-        }
+            p strong {
+                color: #ff3333;
+            }
 
-        p strong {
-            color: #ff3333;
-        }
+            nav {
+                padding: 5px;
+            }
 
-        nav {
-            padding: 5px;
-        }
+            nav ul {
+                display: block;
+            }
 
-        nav ul {
-            display: block;
-        }
+            nav ul li {
+                display: inline;
+                margin: 3px;
+            }
 
-        nav ul li {
-            display: inline;
-            margin: 3px;
-        }
+            nav ul li a {
+                color: black;
+                text-decoration: none;
+                font-family: sans-serif;
+                font-weight: bold;
+            }
 
-        nav ul li a {
-            color: black;
-            text-decoration: none;
-            font-family: sans-serif;
-            font-weight: bold;
-        }
+            nav ul li a:hover {
+                color: rgb(122, 122, 122);
+                text-decoration: underline;
+            }
 
-        nav ul li a:hover {
-            color: rgb(122, 122, 122);
-            text-decoration: underline;
-        }
+            .banner {
+                background-color: #f44336;
+                border-radius: 5px;
+                color: white;
+                padding: 10px;
+                text-align: center;
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
 
-        .banner {
-            background-color: #f44336;
-            border-radius: 5px;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
+    <body>
+        <div class="banner">
+            Alerte COVID était l'un des outils de santé publique disponibles
+            pour aider à limiter la propagation de la COVID-19
+        </div>
 
-<body>
+        <nav>
+            <ul>
+                <li><a target="_blank" href="/fr/index.html">Fr</a></li>
+                <li><a target="_blank" href="/index.html">En</a></li>
+                <li>
+                    <a
+                        target="_blank"
+                        href="https://github.com/drjoeycadieux/about-covid-19"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-github"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+                            />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="mailto:joeycadieux161@gmail.com"
+                        ><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-envelope"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+                            /></svg
+                    ></a>
+                </li>
+            </ul>
+        </nav>
 
-    <div class="banner">
-        Alerte COVID était l'un des outils de santé publique disponibles pour aider à limiter la propagation de la
-        COVID-19
-    </div>
+        <h1>
+            Informations sur la COVID-19
+            <span style="color: rgb(194, 47, 47); font-size: 19px"
+                >V1.1.12</span
+            >
+        </h1>
 
-    <nav>
-        <ul>
-            <li><a target="_blank" href="/fr/index.html">Fr</a></li>
-            <li><a target="_blank" href="/index.html">En</a></li>
-            <li><a target="_blank" href="https://github.com/drjoeycadieux/about-covid-19">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-github" viewBox="0 0 16 16">
-                        <path
-                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-                    </svg>
-                </a></li>
-            <li>
-                <a target="_blank" href="mailto:joeycadieux161@gmail.com"><svg xmlns="http://www.w3.org/2000/svg"
-                        width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-                        <path
-                            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
-                    </svg></a>
-            </li>
-        </ul>
-    </nav>
+        <div class="info-section">
+            <h2>Qu'est-ce que la COVID-19 ?</h2>
+            <p>
+                La COVID-19 est une maladie respiratoire causée par un virus
+                appelé SARS-CoV-2. Elle a été identifiée pour la première fois à
+                Wuhan, en Chine, fin 2019.
+            </p>
+        </div>
 
-    <h1>Informations sur la COVID-19 <span style="color: rgb(194, 47, 47); font-size: 19px;">V1.1.12</span> </h1>
+        <div class="info-section">
+            <h3>Symptômes:</h3>
+            <ul>
+                <li>Fièvre</li>
+                <li>Toux</li>
+                <li>Essoufflement</li>
+                <li>Fatigue</li>
+                <li>Douleurs musculaires ou corporelles</li>
+                <li>Maux de tête</li>
+                <li>Perte nouvelle du goût ou de l'odorat</li>
+            </ul>
+        </div>
 
-    <div class="info-section">
-        <h2>Qu'est-ce que la COVID-19 ?</h2>
-        <p>La COVID-19 est une maladie respiratoire causée par un virus appelé SARS-CoV-2. Elle a été identifiée
-            pour la première fois à Wuhan, en Chine, fin 2019.</p>
-    </div>
+        <div class="info-section">
+            <h3>Transmission:</h3>
+            <p>
+                Le virus se propage principalement par les gouttelettes
+                respiratoires produites lorsqu'une personne infectée tousse,
+                éternue ou parle.
+            </p>
+        </div>
 
-    <div class="info-section">
-        <h3>Symptômes:</h3>
-        <ul>
-            <li>Fièvre</li>
-            <li>Toux</li>
-            <li>Essoufflement</li>
-            <li>Fatigue</li>
-            <li>Douleurs musculaires ou corporelles</li>
-            <li>Maux de tête</li>
-            <li>Perte nouvelle du goût ou de l'odorat</li>
-        </ul>
-    </div>
+        <div class="info-section">
+            <h3>Prévention:</h3>
+            <ul>
+                <li>
+                    <strong>Vaccination:</strong> Se faire vacciner et recevoir
+                    des rappels est le meilleur moyen de se protéger et de
+                    protéger les autres.
+                </li>
+                <li>
+                    <strong>Masques:</strong> Porter un masque bien ajusté dans
+                    les lieux publics intérieurs peut aider à réduire la
+                    transmission.
+                </li>
+                <li>
+                    <strong>Lavage des mains:</strong> Lavez-vous les mains
+                    fréquemment à l'eau et au savon pendant au moins 20
+                    secondes.
+                </li>
+                <li>
+                    <strong>Distanciation sociale:</strong> Maintenez une
+                    distance d'au moins 2 mètres avec les autres.
+                </li>
+                <li>
+                    <strong>Restez à la maison si vous êtes malade:</strong> Si
+                    vous êtes malade, restez à la maison pour éviter de propager
+                    le virus.
+                </li>
+            </ul>
+        </div>
 
-    <div class="info-section">
-        <h3>Transmission:</h3>
-        <p>Le virus se propage principalement par les gouttelettes respiratoires produites lorsqu'une personne
-            infectée tousse, éternue ou parle.</p>
-    </div>
+        <div class="info-section">
+            <h2>Sources d'information fiables:</h2>
+            <ul class="resource-list">
+                <li>
+                    <a href="https://www.cdc.gov/"
+                        >Centers for Disease Control and Prevention (CDC)</a
+                    >
+                </li>
+                <li>
+                    <a href="https://www.who.int/"
+                        >Organisation mondiale de la santé (OMS)</a
+                    >
+                </li>
+                <li>
+                    <a href="https://www.fda.gov/"
+                        >U.S. Food and Drug Administration (FDA)</a
+                    >
+                </li>
+            </ul>
+        </div>
 
-    <div class="info-section">
-        <h3>Prévention:</h3>
-        <ul>
-            <li><strong>Vaccination:</strong> Se faire vacciner et recevoir des rappels est le meilleur moyen de se
-                protéger et de protéger les autres.</li>
-            <li><strong>Masques:</strong> Porter un masque bien ajusté dans les lieux publics intérieurs peut aider à
-                réduire la transmission.</li>
-            <li><strong>Lavage des mains:</strong> Lavez-vous les mains fréquemment à l'eau et au savon pendant au moins
-                20 secondes.</li>
-            <li><strong>Distanciation sociale:</strong> Maintenez une distance d'au moins 2 mètres avec les autres.</li>
-            <li><strong>Restez à la maison si vous êtes malade:</strong> Si vous êtes malade, restez à la maison pour
-                éviter de propager le virus.</li>
-        </ul>
-    </div>
-
-    <div class="info-section">
-        <h2>Sources d'information fiables:</h2>
-        <ul class="resource-list">
-            <li><a href="https://www.cdc.gov/">Centers for Disease Control and Prevention (CDC)</a></li>
-            <li><a href="https://www.who.int/">Organisation mondiale de la santé (OMS)</a></li>
-            <li><a href="https://www.fda.gov/">U.S. Food and Drug Administration (FDA)</a></li>
-        </ul>
-    </div>
-
-    <p><strong>Veuillez consulter un professionnel de la santé pour toute préoccupation médicale liée à la
-            COVID-19.</strong></p>
-
-</body>
-
+        <p>
+            <strong
+                >Veuillez consulter un professionnel de la santé pour toute
+                préoccupation médicale liée à la COVID-19.</strong
+            >
+        </p>
+    </body>
 </html>
